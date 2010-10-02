@@ -1,6 +1,6 @@
-module IsAlias
+module DanielSpangenberg::IsAlias
   def self.included(base)
-    base.extend DanielSpangenberg::IsAlias::ClassMethods
+    base.extend IsAlias::ClassMethods
   end
 
   module ClassMethods
