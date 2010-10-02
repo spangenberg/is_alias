@@ -13,6 +13,9 @@ tmtags
 ## VIM
 *.swp
 
+## APTANA STUDIO 3
+.project
+
 ## PROJECT::GENERAL
 coverage
 rdoc
