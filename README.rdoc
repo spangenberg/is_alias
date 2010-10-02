@@ -1,17 +1,68 @@
-= is_alias
+=IsAlias
 
-Description goes here.
+This gem makes it easy to add simple active record attribute check methods.
 
-== Note on Patches/Pull Requests
- 
-* Fork the project.
-* Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a
-  future version unintentionally.
-* Commit, do not mess with rakefile, version, or history.
-  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
-* Send me a pull request. Bonus points for topic branches.
+http://github.com/neonlex/is_alias
 
-== Copyright
 
-Copyright (c) 2010 Daniel Spangenberg. See LICENSE for details.
+==Installation
+
+You can use the latest IsAlias gem:
+
+  gem install is_alias
+
+After you install IsAlias, add it to your Gemfile.
+
+==Usage
+
+===Defining the aliases
+
+  class User < ActiveRecord::Base
+    is_alias :staff => true, :hireable => :profile_hireable
+  end
+
++is_alias+ takes a hash. The keys are the method names which, would be generated. The values are the active record fields.
+<b>Use symbols.</b>
+If the value is true, than the system uses the key as value.
+
+
+===Generated instance methods
+
+Calling +is_alias+ as shown above creates the following instance methods
+on Spaceship:
+
+  User#is_staff?
+  User#is_hireable?
+
+
+==Authors
+
+{Daniel Spangenberg}[http://github.com/neonlex]
+
+Please find out more about my work in my
+{blog}[http://thewayofthinking.com].
+
+
+==License
+
+The MIT License
+
+Copyright (c) 2009 {Daniel Spangenberg}[http://thewayofthinking.com]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
